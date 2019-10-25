@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 const NoteApp = () => {
-  // const notesData = JSON.parse(localStorage.getItem('notes'))
-  // const [notes, setNotes] = useState(notesData || [])
-  const [notes, setNotes] = useState([])
+  const notesData = JSON.parse(localStorage.getItem('notes'))
+  const [notes, setNotes] = useState(notesData || [])
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
 
@@ -23,9 +22,9 @@ const removeNote = (title) => {
   setNotes(notes.filter((note) => note.title !== title)) 
 }
 
-// useEffect(() => {
-//   localStorage.setItem('notes', JSON.stringify(notes))
-// })
+useEffect(() => {
+  localStorage.setItem('notes', JSON.stringify(notes))
+})
 
   return (
     <div>
